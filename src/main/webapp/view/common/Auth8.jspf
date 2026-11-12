@@ -1,0 +1,10 @@
+<%@ page import="module.User8" %>
+<%
+    // Dung chung: truoc khi include phai khai bao  String requiredRole = "READER" | "LIBRARIAN";
+    request.setCharacterEncoding("UTF-8");
+    User8 currentUser = (User8) session.getAttribute("currentUser");
+    if (currentUser == null || !requiredRole.equals(currentUser.getRole())) {
+        response.sendRedirect(request.getContextPath() + "/view/LoginPage8.jsp");
+        return;
+    }
+%>
